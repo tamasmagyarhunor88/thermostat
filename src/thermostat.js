@@ -2,5 +2,16 @@
 
 function Thermostat() {
   this.temperature = 20;
-  console.log(this)
+};
+
+Thermostat.prototype.getCurrentTemperature = function() {
+  return this.temperature;
+};
+
+Thermostat.prototype.up = function() {
+  return this.temperature += 1;
+};
+
+Thermostat.prototype.down = function() {
+  return this.temperature -= 1;
 };
