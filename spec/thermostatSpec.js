@@ -7,8 +7,17 @@ describe('Thermostat', function() {
     thermostat = new Thermostat();
   });
 
-  it('starts at 20 degrees', function() {
+  it('starts at 20 degrees by default', function() {
     expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
+
+  it('is in power saving mode by default', function() {
+    expect(thermostat.isPowerSavingModeOn()).toBe(true)
+  });
+
+  it('can switch PSM off', function() {
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
   });
 
   it('has minimum temperature of 10 degrees', function() {
@@ -29,6 +38,4 @@ describe('Thermostat', function() {
     thermostat.down();
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
-
-
 });
